@@ -1,73 +1,33 @@
-# React + TypeScript + Vite
+# Actividad 1 - Mini Aplicación React (Aurum Restaurant)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción
+Esta es una mini aplicación creada con Vite + React y Tailwind CSS para la Actividad 1. Implementa un layout completo con header, contenido principal, sidebar fija en pc y footer.
 
-Currently, two official plugins are available:
+## Decisiones de Diseño
+1. **Temática e Inspiración**:
+   - He estado haciendo proyectos relacionados con restaurantes últimamente, por lo que decidí enfocar este proyecto como una especie de página para un restaurante fino ("Aurum").
+   - Quería experimentar con el color blanco ya que muchos sitios de restaurantes de alto nivel usan tonos muy oscuros y pesados. Este enfoque minimalista (blanco y dorado) permite que la interfaz se sienta pura, ligera y elegante.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+2. **Paleta de Colores**: 
+   - Se descartaron por completo los degradados a favor de colores sólidos limpios.
+   - Toda la paleta (blanco, dorado, grises) se configuró como variables CSS nativas en `index.css` y consumidas directamente mediante Tailwind CSS (`bg-brand-gold`, `bg-brand-light`).
 
-## React Compiler
+3. **Layout Estructural Responsive (Basado en Boceto)**:
+   - Siguiendo los requerimientos y el boceto dado, el `Header` y `Footer` funcionan como bloques completos (full width).
+   - El contenedor central (content) y el sidebar a la derecha poseen contornos con un remate súper redondeado (`rounded-[3rem]`) para emular el trazado del boceto y hacer el diseño suave.
+   - Existen margenes y huecos ("gap") separando cada de estos bloques, dándole al diseño "aire" para respirar.
+   - En PC el modo es lado a lado, mientras que en móvil se organizan verticalmente de manera natural responsive.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+4. **Componentes Modulares**:
+   - `PrimaryButton` para la acción de reserva.
+   - `InfoCard` para información de platos o servicios, con leve animación al hacer hover.
+   - `SidebarMenu` contenido en una tarjeta redondeada a la derecha.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Requisitos Cumplidos
+- [x] Construcción en Vite + React.
+- [x] Tailwind CSS completamente configurado llamando vars del .css normal.
+- [x] 3 Componentes reutilizables.
+- [x] Estructura de boceto respetada con cajas amplias redondeadas y sidebar derecha.
+- [x] Vista Responsive para desktop y mobile.
+- [x] Interactive states visualmente claros.
+- [x] Comentarios en español, minúsculas, sin acentos y código en inglés.
